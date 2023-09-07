@@ -2,12 +2,15 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"time"
 )
 
 func main() {
 	http.HandleFunc("/uno", getInfo)
+	fmt.Println("Server Running...")
+
 	http.ListenAndServe(":8080", nil)
 }
 
@@ -15,27 +18,27 @@ func getInfo(w http.ResponseWriter, r *http.Request) {
 	slackName := r.URL.Query().Get("slack_name")
 	track := r.URL.Query().Get("track")
 
-	// Get current UTC time
-	now := time.Now().UTC()
 
-	// Calculate the time difference in minutes
-	timeDifference := now.Minute() - 4 // UTC is 4 minutes behind the server time
+	utcLocation, err := time.LoadLocation("UTC")
+	if err != nil{
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	now := time.Now().In(utcLocation)
 
-	// Check if the time difference is within +/-2 minutes
+	timeDifference := now.Minute() - 4
+
 	if timeDifference < -2 || timeDifference > 2 {
 		http.Error(w, "Invalid UTC time", http.StatusBadRequest)
 		return
 	}
 
-	// GitHub URL of the file being run
-	githubFileURL := "https://github.com/username/repo/blob/main/file_name.ext"
+	githubFileURL := "https://github.com/E-phraim/HNGx/blob/main/stageOne/main.go"
 
-	// GitHub URL of the full source code
-	githubRepoURL := "https://github.com/username/repo"
+	githubRepoURL := "https://github.com/E-phraim/HNGx/tree/main/stageOne"
 
-	// Create a struct to hold the response data
 	response := struct {
-		SlackName     string    `json:"slack_name"`
+		SlackName     string    `json:"kodeforce"`
 		CurrentDay    string    `json:"current_day"`
 		UTCTime       time.Time `json:"utc_time"`
 		Track         string    `json:"track"`
@@ -52,7 +55,6 @@ func getInfo(w http.ResponseWriter, r *http.Request) {
 		StatusCode:    http.StatusOK,
 	}
 
-	// Encode the response as JSON
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	if err := json.NewEncoder(w).Encode(response); err != nil {
