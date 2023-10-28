@@ -43,7 +43,7 @@
 - `email` (string): The email address of the user.
 - `phoneNumber` (string): The phone number of the user.
 
-# Example Request:
+### Example Request:
 
 {
 "fullName": "John Doe",
@@ -51,7 +51,7 @@
 "phoneNumber": "+1-555-123-4567"
 }
 
-# Example Response:
+### Example Response:
 
 {
 "message": "User created successfully.",
