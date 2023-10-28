@@ -23,17 +23,13 @@
 - DB_MAX_IDLE_CONNS=5
 - DB_MAX_IDLE_TIME=1m
 
-## User Sessions
-
-- This handles users sessions that checks if a user has a valid/active session.
-
 ## User Management API Endpoints
 
 - This documentation outlines the endpoints available for managing user-related operations within the API. The API is versioned under `/v1/users`.
 
-### Create a User
+## Create a User
 
-### POST `/v1/user/`
+- POST `/v1/user/`
 
 ## Description: This endpoint allows the creation of a new user in the system.
 
@@ -67,9 +63,35 @@
 
 ### Update User Information
 
-### PATCH `/v1/user/`
+- PATCH `/v1/user/`
 
 ## Description: This endpoint allows updating user information such as full name and phone number.
+
+### User Sessions
+
+- This handles users sessions that checks if a user has a valid/active session.
+
+- POST `/`
+### Description: creates a models.SessionModel for the user valid for the current day if the user has a models.SessionModel that is valid, it will ignore the request with an error.
+
+- POST `/:sessionId`
+### Description: 
+
+- GET `/requests`
+### Description: 
+
+- GET `/connections`
+### Description: 
+
+- GET `/sessions`
+### Description: 
+
+- POST `/accept/:requestId`
+### Description: 
+
+- POST `/decline/:requestId`
+### Description: 
+
 
 ## Your Gym Buddy
 
