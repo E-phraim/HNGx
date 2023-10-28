@@ -6,35 +6,40 @@
 - admin: inhouse management part of the application
 - docs: documentation with markdoc
 
-# Application Setup
+# Documentation for Gymbuddy
 
-### Environment
+this is the official documentation for the gymbuddy web application.
 
-- In the root directory of the application, create an 'app.env' file with the following;
+Jump To:
 
-- POSTGRES_HOST=localhost
-- POSTGRES_DB=postgres
-- POSTGRES_USER=postgres
-- POSTGRES_PASSWORD=postgres
-- POSTGRES_PORT=5432
-- PORT=:3000
-- DB_DSN=postgres://postgres:postgres@localhost/postgres?sslmode=disable
-- DB_MAX_OPEN_CONNS=10
-- DB_MAX_IDLE_CONNS=5
-- DB_MAX_IDLE_TIME=1m
+- [Environment Setup](#Environment-Setup)
+- [API Endpoints](#API-Endpoints)
 
-## User Management API Endpoints
+## Environment-Setup
+
+In the root directory of the application, create an 'app.env' file with the following;
+
+    POSTGRES_HOST=localhost
+    POSTGRES_DB=postgres
+    POSTGRES_USER=postgres
+    POSTGRES_PASSWORD=postgres
+    POSTGRES_PORT=5432
+    PORT=:3000
+    DB_DSN=postgres://postgres:postgres@localhost/postgres?sslmode=disable
+    DB_MAX_OPEN_CONNS=10
+    DB_MAX_IDLE_CONNS=5
+    DB_MAX_IDLE_TIME=1m
+
+## API-Endpoints
+
+### User Management API Endpoints
 
 - This documentation outlines the endpoints available for managing user-related operations within the API. The API is versioned under `/v1/users`.
 
-## Create a User
+### Create a User
+    POST `/v1/user/`
 
-- POST `/v1/user/`
-
-## Description: This endpoint allows the creation of a new user in the system.
-
-## Request:
-
+Request body is going to include:
 - `fullName` (string): The full name of the user.
 - `email` (string): The email address of the user.
 - `phoneNumber` (string): The phone number of the user.
@@ -69,29 +74,35 @@
 
 ### User Sessions
 
-- This handles users sessions that checks if a user has a valid/active session.
+- This handles uers sessions that checks if a user has a valid/active session.
 
 - POST `/`
-Description: creates a models.SessionModel for the user valid for the current day if the user has a models.SessionModel that is valid, it will ignore the request with an error.
+
+### Description: creates a models.SessionModel for the user valid for the current day if the user has a models.SessionModel that is valid, it will ignore the request with an error.
 
 - POST `/:sessionId`
-Description: 
+
+### Description:
 
 - GET `/requests`
-Description: 
+
+### Description:
 
 - GET `/connections`
-- Description: 
+
+### Description:
 
 - GET `/sessions`
-- Description: 
+
+### Description:
 
 - POST `/accept/:requestId`
-- Description: 
+
+### Description:
 
 - POST `/decline/:requestId`
-- Description: 
 
+### Description:
 
 ## Your Gym Buddy
 
