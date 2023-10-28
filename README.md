@@ -72,25 +72,25 @@
 - This handles users sessions that checks if a user has a valid/active session.
 
 - POST `/`
-### Description: creates a models.SessionModel for the user valid for the current day if the user has a models.SessionModel that is valid, it will ignore the request with an error.
+- Description: creates a models.SessionModel for the user valid for the current day if the user has a models.SessionModel that is valid, it will ignore the request with an error.
 
 - POST `/:sessionId`
-### Description: 
+- Description: 
 
 - GET `/requests`
-### Description: 
+- Description: 
 
 - GET `/connections`
-### Description: 
+- Description: 
 
 - GET `/sessions`
-### Description: 
+- Description: 
 
 - POST `/accept/:requestId`
-### Description: 
+- Description: 
 
 - POST `/decline/:requestId`
-### Description: 
+- Description: 
 
 
 ## Your Gym Buddy
