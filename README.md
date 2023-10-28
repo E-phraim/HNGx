@@ -1,3 +1,30 @@
+# Distributes
+
+- api: user facing part of the application
+- core: runs in the background in two modes (provider and resolver)
+- public: user facing part of the application
+- admin: inhouse management part of the application
+- docs: documentation with markdoc
+
+# Application Setup
+
+### Environment
+- In the root directory of the application, create an 'app.env' file with the following;
+
+  POSTGRES_HOST=localhost
+  POSTGRES_DB=postgres
+  POSTGRES_USER=postgres
+  POSTGRES_PASSWORD=postgres
+  POSTGRES_PORT=5432
+  PORT=:3000
+  DB_DSN=postgres://postgres:postgres@localhost/postgres?sslmode=disable
+  DB_MAX_OPEN_CONNS=10
+  DB_MAX_IDLE_CONNS=5
+  DB_MAX_IDLE_TIME=1m
+
+## User Sessions
+- This handles users sessions that checks if a user has a valid/active session.
+
 ## User Management API Endpoints
 
 - This documentation outlines the endpoints available for managing user-related operations within the API. The API is versioned under `/v1/users`.
