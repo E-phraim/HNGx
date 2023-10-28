@@ -44,33 +44,32 @@ Request body is going to include:
 - `email` (string): The email address of the user.
 - `phoneNumber` (string): The phone number of the user.
 
-### Example Request:
+Example Request:
 
-{
-"fullName": "John Doe",
-"email": "john.doe@example.com",
-"phoneNumber": "+1-555-123-4567"
-}
+    {
+    "fullName": "John Doe",
+    "email": "john.doe@example.com",
+    "phoneNumber": "+1-555-123-4567"
+    }
 
-### Example Response:
+Example Response:
 
-{
-"message": "User created successfully.",
-"details": {
-"ID": "user_id",
-"AccountType": "regular",
-"FullName": "John Doe",
-"Email": "john.doe@example.com",
-"PhoneNumber": "+1-555-123-4567",
-"Activated": true
-}
-}
+    {
+    "message": "User created successfully.",
+    "details": {
+    "ID": "user_id",
+    "AccountType": "regular",
+    "FullName": "John Doe",
+    "Email": "john.doe@example.com",
+    "PhoneNumber": "+1-555-123-4567",
+    "Activated": true
+      }
+    }
 
 ### Update User Information
+    PATCH `/v1/user/`
 
-- PATCH `/v1/user/`
-
-## Description: This endpoint allows updating user information such as full name and phone number.
+Description: This endpoint allows updating user information such as full name and phone number.
 
 ### User Sessions
 
