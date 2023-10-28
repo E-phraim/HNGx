@@ -37,7 +37,7 @@ In the root directory of the application, create an 'app.env' file with the foll
 - This documentation outlines the endpoints available for managing user-related operations within the API. The API is versioned under `/v1/users`.
 
 ### Create a User
-    POST `/v1/user/`
+    POST `/`
 
 Request body is going to include:
 - `fullName` (string): The full name of the user.
@@ -66,10 +66,22 @@ Example Response:
       }
     }
 
-### Update User Information
-    PATCH `/v1/user/`
-
+### Set User Information
+    PATCH `/`
 Description: This endpoint allows updating user information such as full name and phone number.
+
+### Create User Bio
+    POST `/bio`
+
+### Set User Bio
+    PATCH `/bio`
+
+### Create User Preferences
+    POST `/pref`
+
+### Set User Bio
+    PATCH `/bio`
+
 
 ### User Sessions
 
